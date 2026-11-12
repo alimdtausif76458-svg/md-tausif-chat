@@ -1,0 +1,2563 @@
+
+/* =====================================================
+   MD TAUSIF CHAT
+   COMPLETE ORGANIZED CSS
+   Desktop + Tablet + Mobile
+===================================================== */
+
+
+/* =====================================================
+   1. GLOBAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    color: #ffffff;
+
+    background:
+        radial-gradient(ellipse at 15% 10%, rgba(150, 45, 255, 0.55), transparent 40%),
+        radial-gradient(ellipse at 85% 15%, rgba(0, 160, 255, 0.45), transparent 40%),
+        radial-gradient(ellipse at 50% 85%, rgba(105, 35, 255, 0.45), transparent 45%),
+        linear-gradient(135deg, #10052f, #101b68, #071a49);
+
+    background-attachment: scroll;
+    padding: 20px;
+    overflow-x: clip;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+
+/* =====================================================
+   2. MAIN CONTAINER
+===================================================== */
+
+.chat-container {
+    width: 100%;
+    max-width: 1250px;
+    margin: auto;
+}
+
+
+/* =====================================================
+   3. GLASS EFFECT
+===================================================== */
+
+.navbar,
+.room-option,
+.feature-card,
+.step-card,
+.room-section,
+.about-section {
+    background: rgba(255, 255, 255, 0.09);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =====================================================
+   4. NAVBAR
+===================================================== */
+
+  .navbar {
+    min-height: 90px;
+    padding: 15px 25px;
+
+    border-radius: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    position: sticky;
+    top: 15px;
+    z-index: 1000;
+}
+
+
+
+
+
+
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.logo {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(135deg, #00c6ff, #8b2cff);
+
+    color: white;
+    font-size: 18px;
+    font-weight: 900;
+
+    box-shadow: 0 0 22px rgba(0, 198, 255, 0.35);
+}
+
+.brand-text h2 {
+    font-size: 21px;
+    white-space: nowrap;
+}
+
+.brand-text h2 span {
+    color: #34c9ff;
+}
+
+.brand-text p {
+    color: #c2c5e7;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.desktop-nav a {
+    color: #dedff7;
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.3s;
+    position: relative;
+}
+
+.desktop-nav a:hover,
+.desktop-nav a.active {
+    color: #42d4ff;
+}
+
+.desktop-nav a::after {
+    content: "";
+
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+
+    width: 0;
+    height: 2px;
+
+    background: #38d5ff;
+    transition: 0.3s;
+}
+
+.desktop-nav a:hover::after,
+.desktop-nav a.active::after {
+    width: 100%;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-create,
+.nav-join {
+    padding: 12px 17px;
+
+    border-radius: 30px;
+
+    font-size: 13px;
+    font-weight: bold;
+    white-space: nowrap;
+
+    transition: 0.3s;
+}
+
+.nav-create {
+    background: linear-gradient(110deg, #00aaff, #852bff);
+
+    border: 1px solid rgba(255,255,255,0.4);
+
+    box-shadow: 0 0 20px rgba(70, 90, 255, 0.4);
+}
+
+.nav-join {
+    border: 1px solid rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.07);
+}
+
+.nav-create:hover,
+.nav-join:hover {
+    transform: translateY(-3px);
+}
+
+
+/* =====================================================
+   5. MOBILE MENU
+===================================================== */
+
+/* =====================================================
+   5. MOBILE MENU - GLASS SIDEBAR
+===================================================== */
+
+/* ======================================
+   MOBILE SIDEBAR - ANIMATED GLASS
+====================================== */
+
+.mobile-menu {
+    display: none;
+    position: relative;
+    z-index: 9999;
+}
+
+/* HAMBURGER BUTTON */
+
+.mobile-menu-toggle {
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 12px;
+
+    background: transparent;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    cursor: pointer;
+    position: relative;
+    z-index: 10002;
+}
+
+.mobile-menu-toggle span {
+    width: 19px;
+    height: 2px;
+
+    background: white;
+    border-radius: 5px;
+
+    transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+/* HAMBURGER TO CROSS */
+
+.mobile-menu.is-open .mobile-menu-toggle span:first-child {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-menu.is-open .mobile-menu-toggle span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu.is-open .mobile-menu-toggle span:last-child {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* SIDEBAR */
+
+.mobile-menu-content {
+    display: flex !important;
+    flex-direction: column;
+    gap: 14px;
+
+    position: fixed;
+    top: 85px;
+    right: 15px;
+
+    width: min(300px, 86vw);
+    max-height: calc(100vh - 105px);
+    overflow-y: auto;
+
+    padding: 20px;
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.055);
+    border: 1px solid rgba(255,255,255,0.18);
+
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateX(40px) scale(0.96);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease,
+        visibility 1s ease;
+
+    z-index: 10001;
+}
+
+/* OPEN */
+
+.mobile-menu.is-open .mobile-menu-content {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateX(0) scale(1);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease,
+        visibility 0s;
+}
+
+/* HEADING */
+
+.sidebar-heading {
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.14);
+}
+
+.sidebar-heading h3 {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.sidebar-heading p {
+    color: rgba(255,255,255,0.6);
+    font-size: 12px;
+}
+
+/* SECTIONS */
+
+.sidebar-section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.sidebar-section > a {
+    display: block;
+    padding: 12px;
+    border-radius: 10px;
+
+    color: #eeeeff;
+    font-size: 14px;
+    text-decoration: none;
+
+    transition: background 0.2s ease;
+}
+
+.sidebar-section > a:hover {
+    background: rgba(255,255,255,0.12);
+}
+
+.sidebar-section-title {
+    color: rgba(255,255,255,0.5);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    padding: 5px 10px;
+}
+
+/* ROOM BUTTONS */
+
+.mobile-menu-content .mobile-create {
+    background: linear-gradient(
+        110deg,
+        rgba(0,170,255,0.75),
+        rgba(133,44,255,0.75)
+    );
+}
+
+.mobile-menu-content .mobile-join {
+    border: 1px solid rgba(255,255,255,0.25);
+}
+
+/* SETTINGS */
+
+.sidebar-setting {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    padding: 13px 10px;
+    border-radius: 12px;
+
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.setting-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.setting-info > span {
+    font-size: 21px;
+}
+
+.setting-info strong {
+    display: block;
+    color: white;
+    font-size: 13px;
+}
+
+.setting-info small {
+    display: block;
+    color: rgba(255,255,255,0.55);
+    font-size: 10px;
+    margin-top: 4px;
+}
+
+/* SOUND TOGGLE */
+
+.sidebar-switch {
+    position: relative;
+    display: inline-block;
+    width: 42px;
+    height: 23px;
+    flex-shrink: 0;
+}
+
+.sidebar-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.sidebar-switch-slider {
+    position: absolute;
+    inset: 0;
+
+    cursor: pointer;
+
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 30px;
+
+    transition: 0.3s ease;
+}
+
+.sidebar-switch-slider::before {
+    content: "";
+    position: absolute;
+
+    width: 17px;
+    height: 17px;
+
+    left: 2px;
+    top: 2px;
+
+    background: white;
+    border-radius: 50%;
+
+    transition: 0.3s ease;
+}
+
+.sidebar-switch input:checked + .sidebar-switch-slider {
+    background: #00c878;
+    border-color: #00e695;
+}
+
+.sidebar-switch input:checked + .sidebar-switch-slider::before {
+    transform: translateX(19px);
+}
+
+/* MOBILE VISIBILITY */
+
+@media (max-width: 760px) {
+    .mobile-menu {
+        display: block;
+    }
+}
+
+/* =====================================================
+   6. HERO / ROOM SETUP
+===================================================== */
+
+.room-setup {
+    padding: 65px 20px 45px;
+    text-align: center;
+}
+
+.hero-badge {
+    display: inline-block;
+
+    padding: 9px 17px;
+    margin-bottom: 22px;
+
+    border-radius: 30px;
+
+    border: 1px solid rgba(80, 215, 255, 0.5);
+
+    color: #65dcff;
+    background: rgba(0, 180, 255, 0.1);
+
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.hero-content h1 {
+    font-size: clamp(35px, 5vw, 58px);
+    line-height: 1.2;
+    font-weight: 900;
+}
+
+.hero-content h1 span {
+    background: linear-gradient(90deg, #32d5ff, #bd72ff);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+.hero-description {
+    max-width: 570px;
+    margin: 18px auto 0;
+
+    color: #d0d4f2;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   7. ROOM OPTIONS
+===================================================== */
+
+.room-options {
+    max-width: 850px;
+    margin: 45px auto 0;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.room-option {
+    padding: 28px;
+    border-radius: 20px;
+    text-align: left;
+
+    transition: 0.3s;
+}
+
+.room-option:hover,
+.feature-card:hover,
+.step-card:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(90, 210, 255, 0.6);
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.option-icon {
+    width: 45px;
+    height: 45px;
+
+    border-radius: 13px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 23px;
+    color: white;
+
+    background: linear-gradient(135deg, #00baff, #842cff);
+
+    margin-bottom: 20px;
+}
+
+.room-option h3 {
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.room-option p {
+    font-size: 13px;
+    line-height: 1.7;
+
+    color: #c5c9e9;
+    margin-bottom: 20px;
+}
+
+.room-option button {
+    width: 100%;
+    padding: 14px;
+
+    border: none;
+    border-radius: 10px;
+
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+
+    background: linear-gradient(100deg, #009dff, #852cff);
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.room-option button:hover {
+    filter: brightness(1.15);
+    box-shadow: 0 0 22px rgba(80, 120, 255, 0.4);
+}
+
+.room-option button span {
+    margin-left: 8px;
+}
+
+
+/* =====================================================
+   8. JOIN FORM
+===================================================== */
+
+#joinRoomForm {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#joinRoomForm input {
+    width: 100%;
+    padding: 14px;
+
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 10px;
+
+    outline: none;
+
+    font-size: 14px;
+    color: white;
+
+    background: rgba(0,0,0,0.15);
+    text-transform: uppercase;
+}
+
+#joinRoomForm input::placeholder {
+    color: #aeb4d7;
+}
+
+#joinRoomForm input:focus {
+    border-color: #35cfff;
+    box-shadow: 0 0 12px rgba(53,207,255,0.2);
+}
+
+.status-message {
+    margin-top: 18px;
+
+    font-size: 14px;
+    color: #64e4bd;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =====================================================
+   9. INFORMATION SECTIONS
+===================================================== */
+
+.info-section {
+    padding: 65px 20px;
+    scroll-margin-top: 110px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-heading > span {
+    color: #50d5ff;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+
+/* =====================================================
+   10. FEATURES
+===================================================== */
+
+.feature-grid {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.feature-card {
+    padding: 19px 20px;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.feature-icon {
+    font-size: 26px;
+    margin-bottom: 12px;
+}
+
+.feature-card h3 {
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.feature-card p {
+    color: #c5c9e9;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   11. STEPS
+===================================================== */
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.step-card {
+    padding: 25px;
+    border-radius: 17px;
+    transition: 0.3s;
+}
+
+.step-card h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.step-card p {
+    color: #c5c9e9;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.step-number {
+    font-size: 30px;
+    font-weight: 900;
+    margin-bottom: 18px;
+
+    background: linear-gradient(90deg, #32d5ff, #bd72ff);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+/* =====================================================
+   12. ABOUT
+===================================================== */
+
+.about-section {
+    border-radius: 20px;
+    margin-bottom: 50px;
+
+    text-align: center;
+    padding: 35px 25px;
+}
+
+.about-section p {
+    max-width: 650px;
+    margin: auto;
+
+    color: #c5c9e9;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+
+/* =====================================================
+   13. CHAT ROOM MAIN
+===================================================== */
+
+.room-section {
+    width: 100%;
+    max-width: 900px;
+
+    height: 80vh;
+    min-height: 450px;
+
+    margin: 40px auto 5px;
+
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+    min-width: 0;
+}
+
+
+/* =====================================================
+   14. ROOM HEADER
+===================================================== */
+
+.room-info {
+    padding: 14px 18px;
+
+    background: rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+
+    flex-shrink: 0;
+}
+
+.room-details {
+    min-width: 0;
+}
+
+.room-info h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.room-info p {
+    font-size: 12px;
+    color: #c5c9e9;
+    margin-top: 5px;
+}
+
+.room-info strong {
+    color: #52d9ff;
+    letter-spacing: 1px;
+    overflow-wrap: anywhere;
+}
+
+.room-header-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 9px;
+
+    flex-shrink: 0;
+}
+
+.room-header-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+#copyRoomCodeBtn,
+.leave-room-btn {
+    padding: 10px 14px;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+#copyRoomCodeBtn {
+    background: linear-gradient(100deg, #009dff, #852cff);
+
+    color: white;
+    border: none;
+}
+
+#copyRoomCodeBtn:hover {
+    filter: brightness(1.15);
+    transform: translateY(-2px);
+}
+
+.leave-room-btn {
+    border: 1px solid rgba(255, 100, 100, 0.7);
+
+    background: rgba(255, 65, 65, 0.13);
+    color: #ff9999;
+}
+
+.leave-room-btn:hover {
+    background: rgba(255, 65, 65, 0.28);
+    border-color: #ff7777;
+    transform: translateY(-2px);
+}
+
+.leave-room-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* =====================================================
+   15. LUDO BUTTON
+===================================================== */
+
+.open-ludo-btn {
+    position: relative;
+
+    display: block;
+    width: 100%;
+    min-width: 145px;
+
+    padding: 11px 15px;
+
+    border: 1px solid #fff0a6;
+    border-radius: 11px;
+
+    background: linear-gradient(
+        180deg,
+        #fff8c9 0%,
+        #ffdf69 22%,
+        #ffb900 58%,
+        #d98200 100%
+    );
+
+    color: #542900;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 1px;
+
+    text-shadow: 0 1px 1px rgba(255,255,255,0.7);
+
+    box-shadow:
+        0 4px 0 #925000,
+        0 6px 12px rgba(0,0,0,0.3),
+        inset 0 2px 4px rgba(255,255,255,0.9),
+        inset 0 -3px 5px rgba(120,50,0,0.25);
+
+    cursor: pointer;
+    overflow: hidden;
+
+    transition: 0.2s ease;
+}
+
+.open-ludo-btn::before {
+    content: "";
+
+    position: absolute;
+    top: 2px;
+    left: 8%;
+
+    width: 84%;
+    height: 42%;
+
+    border-radius: 20px;
+
+    background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.85),
+        rgba(255,255,255,0.04)
+    );
+
+    pointer-events: none;
+}
+
+.open-ludo-btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+.open-ludo-btn:active {
+    transform: translateY(3px);
+
+    box-shadow:
+        0 1px 0 #925000,
+        inset 0 2px 5px rgba(0,0,0,0.2);
+}
+
+
+/* =====================================================
+   16. COUNTDOWN TIMER
+===================================================== */
+
+.room-timer {
+    display: inline-block;
+
+    margin-top: 10px;
+    padding: 7px 12px;
+
+    border-radius: 8px;
+
+    background: #dcfce7;
+    color: #15803d !important;
+
+    font-size: 14px !important;
+    font-weight: 700;
+
+    transition: all 0.3s ease;
+}
+
+.room-timer.urgent {
+    background: #fee2e2;
+    color: #dc2626 !important;
+}
+
+
+/* =====================================================
+   17. CHAT AREA
+===================================================== */
+
+.chat-area {
+    flex: 1;
+    min-height: 0;
+    min-width: 0;
+
+    padding: 20px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    background: rgba(5, 10, 45, 0.25);
+
+    overscroll-behavior-x: none;
+    touch-action: pan-y;
+}
+
+.welcome-message {
+    text-align: center;
+    color: #d4d8f4;
+
+    margin: auto;
+
+    line-height: 1.8;
+
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+
+    padding: 12px 18px;
+    border-radius: 12px;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   18. MESSAGE OUTER CONTAINER
+===================================================== */
+
+.message {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: fit-content;
+    min-width: 0;
+    max-width: min(75%, 420px);
+
+    margin: 2px 0;
+    padding: 0;
+
+    overflow-wrap: anywhere;
+}
+
+.message.own {
+    align-self: flex-end;
+
+    margin-left: auto;
+
+    align-items: flex-end;
+}
+
+.message.received {
+    align-self: flex-start;
+
+    margin-right: auto;
+
+    align-items: flex-start;
+}
+
+
+/* =====================================================
+   19. MESSAGE BUBBLE
+===================================================== */
+
+.message-bubble {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    width: fit-content;
+    min-width: 150px;
+    max-width: 100%;
+
+    padding: 9px 14px 7px;
+    border-radius: 13px;
+
+    overflow: hidden;
+    overflow-wrap: anywhere;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.25),
+        inset 0 1px 1px rgba(255,255,255,.22);
+
+    border: 1px solid rgba(255,255,255,.16);
+
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+
+   will-change: transform;
+}
+
+
+/* OWN MESSAGE */
+
+.message.own .message-bubble {
+    background: linear-gradient(
+        145deg,
+        rgba(65,145,255,.95),
+        rgba(91,55,190,.96)
+    );
+
+    border-top-right-radius: 3px;
+    border-color: rgba(160,195,255,.4);
+}
+
+
+/* RECEIVED MESSAGE */
+
+.message.received .message-bubble {
+    background: linear-gradient(
+        145deg,
+        rgba(50,75,115,.96),
+        rgba(25,35,75,.98)
+    );
+
+    border-top-left-radius: 3px;
+    border-color: rgba(180,210,255,.22);
+}
+
+
+/* GLOSSY REFLECTION */
+
+.message-bubble::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 45%;
+
+    background: linear-gradient(
+        180deg,
+        rgba(255,255,255,.13),
+        transparent
+    );
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   20. MESSAGE SENDER
+===================================================== */
+
+.message-sender {
+    display: block;
+    width: 100%;
+
+    font-size: 12px;
+    line-height: 16px;
+
+    color: #7de5ff;
+    font-weight: bold;
+
+    margin-bottom: 3px;
+}
+
+
+/* =====================================================
+   21. MESSAGE TEXT
+===================================================== */
+
+.message-text {
+    display: block;
+
+    min-width: 0;
+    max-width: 100%;
+
+    font-size: 15px;
+    line-height: 1.4;
+    color: #fff;
+
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+
+/* =====================================================
+   22. MESSAGE FOOTER
+===================================================== */
+
+.message-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+
+    width: 100%;
+    margin-top: 5px;
+
+    min-height: 12px;
+}
+
+.message-time {
+    position: static !important;
+
+    display: inline-block;
+
+    margin: 0;
+    padding: 0;
+
+    font-size: 10px;
+    line-height: 1;
+
+    color: rgba(255,255,255,.72);
+
+    white-space: nowrap;
+}
+
+.message-tick {
+    position: static !important;
+
+    display: inline-block;
+
+    margin: 0;
+    padding: 0;
+
+    font-size: 12px;
+    line-height: 1;
+
+    font-weight: bold;
+    letter-spacing: -2px;
+
+    color: #9ca3af;
+    white-space: nowrap;
+}
+
+.message-tick.delivered {
+    color: #c0c8d2;
+}
+
+.message-tick.read {
+    color: #38bdf8;
+}
+
+
+/* =====================================================
+   23. MESSAGE REACTIONS
+===================================================== */
+
+.message-reactions {
+    position: absolute !important;
+
+    bottom: 2px;
+    LEFT: 12PX;
+
+    z-index: 50;
+
+    display: inline-flex;
+    align-items: center;
+
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+
+    gap: 3px;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: transparent;
+
+    /* Reaction wrapper must not block swipe */
+    pointer-events: none;
+}
+
+.message-reactions .reaction-chip {
+    padding: 1px 5px;
+
+    font-size: 10px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: rgba(255,255,255,0.13);
+    color: white;
+
+    backdrop-filter: blur(5px);
+
+    /* Keep reaction chips clickable */
+    pointer-events: auto;
+}
+
+.message-reactions .reaction-chip.my-reaction {
+    background: rgba(120,101,255,0.3);
+
+    border: 1px solid rgba(180,160,255,0.5);
+}
+
+.message-react-button {
+    position: absolute;
+
+   left: -25px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 25px;
+    height: 25px;
+    min-width: 25px;
+
+    padding: 0;
+    margin: 0;
+
+    border: 1px solid rgba(100, 100, 100, 0.2);
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.95);
+    color: #555;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition: opacity 0.18s ease, visibility 0.18s ease;
+}
+
+.message:hover .message-react-button,
+.message:focus-within .message-react-button {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.message-react-button:hover {
+    background: white;
+    transform: translateY(-50%) scale(1.1);
+}
+
+
+/* =====================================================
+   24. REACTION CHIPS
+===================================================== */
+
+.reaction-chip {
+    border: 1px solid rgba(100, 100, 100, 0.2);
+    border-radius: 20px;
+
+    padding: 3px 9px;
+
+    background: rgba(255, 255, 255, 0.65);
+    color: #222;
+
+    font-size: 13px;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.reaction-chip:hover {
+    transform: scale(1.07);
+}
+
+.reaction-chip.my-reaction {
+    border: 1px solid #7865ff;
+    background: rgba(120, 101, 255, 0.2);
+}
+
+
+/* =====================================================
+   25. REACTION PICKER
+===================================================== */
+
+.reaction-picker {
+    z-index: 100000;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    padding: 9px;
+
+    border-radius: 30px;
+
+    background: rgba(30, 30, 55, 0.97);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+
+    backdrop-filter: blur(15px);
+}
+
+.reaction-picker button {
+    width: 32px;
+    height: 32px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: transparent;
+
+    font-size: 21px;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.reaction-picker button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.2);
+}
+
+
+/* =====================================================
+   26. MESSAGE FORM
+===================================================== */
+
+.message-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    gap: 10px;
+    padding: 15px;
+
+    border-top: 1px solid rgba(255,255,255,0.15);
+
+    background: rgba(255,255,255,0.07);
+
+    flex-shrink: 0;
+}
+
+.message-form input {
+    flex: 1;
+    min-width: 0;
+
+    padding: 13px 17px;
+
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 25px;
+
+    outline: none;
+
+    font-size: 14px;
+    color: white;
+
+    background: rgba(0,0,0,0.15);
+}
+
+.message-form input::placeholder {
+    color: #b6bddc;
+}
+
+.message-form input:focus {
+    border-color: #35cfff;
+}
+
+.message-form button {
+    padding: 0 22px;
+    min-height: 44px;
+
+    border: none;
+    border-radius: 25px;
+
+    background: linear-gradient(100deg, #009dff, #852cff);
+
+    color: white;
+    font-weight: bold;
+
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.message-form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* =====================================================
+   27. EMOJI PICKER BUTTON
+===================================================== */
+
+.emoji-picker-button {
+    flex-shrink: 0;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.16);
+
+    color: white;
+    font-size: 25px;
+
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.emoji-picker-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.08);
+}
+
+.emoji-picker-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+/* =====================================================
+   28. EMOJI PICKER PANEL
+===================================================== */
+
+.emoji-picker-panel {
+    position: fixed;
+    z-index: 99999;
+
+    height: 340px;
+    max-height: 75vh;
+
+    padding: 12px;
+
+    border-radius: 18px;
+
+    background: rgba(25, 25, 50, 0.96);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+
+    color: white;
+    overflow: hidden;
+}
+
+.emoji-picker-panel[hidden] {
+    display: none !important;
+}
+
+.emoji-search {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 10px 12px;
+    margin-bottom: 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    color: white;
+    outline: none;
+
+    font-size: 14px;
+}
+
+.emoji-search::placeholder {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.emoji-categories {
+    display: flex;
+    gap: 6px;
+
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.emoji-category-button {
+    flex-shrink: 0;
+
+    border: none;
+    border-radius: 8px;
+
+    padding: 7px 10px;
+
+    background: rgba(255, 255, 255, 0.1);
+
+    color: white;
+    font-size: 11px;
+
+    cursor: pointer;
+}
+
+.emoji-category-button.active {
+    background: #7865ff;
+}
+
+.emoji-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    gap: 5px;
+
+    height: 205px;
+    overflow-y: auto;
+}
+
+.emoji-option {
+    border: none;
+    border-radius: 8px;
+
+    background: transparent;
+
+    font-size: 23px;
+    padding: 5px 0;
+
+    cursor: pointer;
+    transition: 0.15s ease;
+}
+
+.emoji-option:hover {
+    background: rgba(255, 255, 255, 0.18);
+    transform: scale(1.15);
+}
+
+.emoji-empty {
+    grid-column: 1 / -1;
+
+    text-align: center;
+    padding: 30px 0;
+
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+/* =====================================================
+   29. TELEGRAM STYLE REPLY PREVIEW
+===================================================== */
+
+.reply-preview {
+    width: 100%;
+    flex: 0 0 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding: 10px 14px;
+    margin-bottom: 8px;
+
+    background: #202c33;
+
+    border-left: 4px solid #3390ec;
+    border-radius: 8px;
+
+    order: -1;
+}
+
+.reply-preview[hidden] {
+    display: none !important;
+}
+
+.reply-preview-content {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+    gap: 4px;
+}
+
+.reply-preview-content strong {
+    color: #53a6f5;
+    font-size: 13px;
+}
+
+.reply-preview-content span {
+    color: #d1d7db;
+    font-size: 13px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    max-width: 100%;
+}
+
+#cancelReplyBtn {
+    flex-shrink: 0;
+
+    border: none;
+    background: transparent;
+
+    color: #fff;
+    font-size: 19px;
+
+    cursor: pointer;
+}
+
+#replyPreview {
+    flex: 0 0 100%;
+    width: 100%;
+
+    min-width: 0;
+    max-width: 100%;
+
+    order: -1;
+}
+
+#messageInput {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+#sendBtn {
+    flex-shrink: 0;
+}
+
+
+/* =====================================================
+   30. MESSAGE RECEIPTS
+===================================================== */
+
+.message-receipt {
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+    user-select: none;
+}
+
+.single-tick,
+.grey-tick {
+    color: #9ca3af;
+}
+
+.blue-tick {
+    color: #38bdf8;
+}
+
+
+/* =====================================================
+   31. READ RECEIPT SETTING
+===================================================== */
+
+.read-receipt-toggle {
+    display: block;
+
+    margin: 10px auto;
+    padding: 9px 16px;
+
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.12);
+
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    transition: 0.2s ease;
+}
+
+.read-receipt-toggle:hover {
+    background: rgba(255,255,255,0.22);
+}
+
+.read-receipt-toggle.receipts-enabled {
+    border-color: rgba(56,189,248,0.6);
+}
+
+.read-receipt-toggle:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+
+/* =====================================================
+   32. ONLINE / OFFLINE STATUS
+===================================================== */
+
+.presence-status {
+    padding: 9px 18px;
+
+    background: rgba(0, 0, 0, 0.12);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+    color: #d8e5ff;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-align: center;
+}
+
+
+/* =====================================================
+   33. TYPING INDICATOR
+===================================================== */
+
+.typing-indicator {
+    min-height: 30px;
+    padding: 7px 18px;
+
+    color: #65dcff;
+    font-size: 12px;
+    font-style: italic;
+
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.typing-indicator[hidden] {
+    display: none !important;
+}
+
+
+/* =====================================================
+   34. FOOTER
+===================================================== */
+
+footer {
+    text-align: center;
+
+    padding: 30px 15px;
+
+    color: #aeb7dd;
+
+    border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+.footer-brand {
+    font-size: 17px;
+    font-weight: bold;
+
+    color: white;
+}
+
+.footer-brand span {
+    color: #43d3ff;
+}
+
+footer p {
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+footer small {
+    display: block;
+    margin-top: 15px;
+
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   35. TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .navbar {
+        padding: 14px 18px;
+    }
+
+    .desktop-nav {
+        gap: 14px;
+    }
+
+    .desktop-nav a {
+        font-size: 12px;
+    }
+
+    .nav-create,
+    .nav-join {
+        padding: 11px 12px;
+        font-size: 11px;
+    }
+
+    .brand-text h2 {
+        font-size: 18px;
+    }
+
+    .feature-grid {
+        max-width: 900px;
+        gap: 13px;
+    }
+
+    .feature-card {
+        padding: 17px;
+    }
+}
+
+
+/* =====================================================
+   36. MOBILE
+===================================================== */
+
+@media (max-width: 760px) {
+
+    body {
+        padding: 8px;
+    }
+
+    .chat-container {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .navbar {
+        min-height: 70px;
+        padding: 10px;
+        border-radius: 16px;
+    }
+
+    .desktop-nav,
+    .nav-actions {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+
+    .logo {
+        width: 42px;
+        height: 42px;
+    }
+
+    .brand-text h2 {
+        font-size: 17px;
+    }
+
+    .brand-text p {
+        font-size: 10px;
+    }
+
+    .room-setup {
+        padding: 45px 10px 30px;
+    }
+
+    .hero-content h1 {
+        font-size: 34px;
+    }
+
+    .hero-description {
+        font-size: 13px;
+    }
+
+    .room-options {
+        grid-template-columns: 1fr;
+
+        margin-top: 30px;
+        gap: 15px;
+    }
+
+    .room-option {
+        padding: 22px;
+    }
+
+    .info-section {
+        padding: 45px 5px;
+    }
+
+    .section-heading h2 {
+        font-size: 25px;
+    }
+
+    .feature-grid,
+    .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+    .feature-grid {
+        max-width: 420px;
+    }
+
+    .feature-card {
+        padding: 16px 18px;
+    }
+
+    .feature-icon {
+        font-size: 24px;
+        margin-bottom: 9px;
+    }
+
+    .feature-card h3 {
+        font-size: 15px;
+    }
+
+    .feature-card p {
+        font-size: 12px;
+    }
+
+    .about-section {
+        padding: 25px 15px;
+    }
+
+    .room-section {
+        width: 100%;
+
+        height: 94vh;
+        height: 94svh;
+
+        min-height: 0;
+
+        margin: 15px auto 2px;
+
+        border-radius: 14px 14px 25px 25px;
+    }
+
+    .room-info {
+        padding: 12px 10px;
+        gap: 8px;
+    }
+
+    .room-info h3 {
+        font-size: 15px;
+    }
+
+    .room-info p {
+        font-size: 11px;
+    }
+
+    .room-header-actions {
+        gap: 7px;
+    }
+
+    .room-header-buttons {
+        gap: 5px;
+    }
+
+    #copyRoomCodeBtn,
+    .leave-room-btn {
+        padding: 9px 10px;
+        font-size: 11px;
+    }
+
+   
+
+        #openLudoBtn {
+        display: none ;
+    }
+
+
+    .room-timer {
+        font-size: 13px !important;
+        padding: 6px 9px;
+    }
+
+    .chat-area {
+        padding: 12px 9px;
+        gap: 3px;
+    }
+
+    .message {
+        max-width: 85%;
+        margin: 2px 0;
+    }
+
+    .message-bubble {
+        max-width: 100%;
+        min-width: 150px;
+
+        padding: 0px 10px 0px;
+    }
+
+    .message-text {
+        font-size: 15px;
+        line-height: 1.4;
+    }
+
+    .message-sender {
+        font-size: 10px;
+    }
+
+    .message-time {
+        font-size: 8px;
+    }
+
+    .message-tick {
+        font-size: 8px;
+    }
+
+    .message-footer {
+        gap: 2px;
+        margin-top: 2px;
+    }
+
+    .message-form {
+        padding: 10px;
+        gap: 7px;
+    }
+
+    .message-form input {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .message-form button {
+        padding: 0 14px;
+
+        min-height: 42px;
+
+        font-size: 13px;
+    }
+
+    .emoji-picker-button {
+        width: 40px;
+        height: 42px;
+
+        font-size: 23px;
+    }
+
+    .emoji-picker-panel {
+        width: calc(100vw - 20px);
+        max-width: 360px;
+
+        height: 320px;
+        max-height: 65vh;
+    }
+
+    .emoji-grid {
+        grid-template-columns: repeat(7, 1fr);
+        height: 185px;
+    }
+
+    .emoji-option {
+        font-size: 21px;
+    }
+
+    .reaction-picker {
+        gap: 3px;
+        padding: 7px;
+
+        max-width: calc(100vw - 20px);
+    }
+
+    .reaction-picker button {
+        width: 30px;
+        height: 30px;
+
+        font-size: 19px;
+    }
+
+    .presence-status {
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+
+    .typing-indicator {
+        padding: 7px 12px;
+        font-size: 11px;
+    }
+
+    footer {
+        padding: 25px 10px;
+    }
+
+
+
+    /* MOBILE PLAY LUDO BUTTON */
+.mobile-play-ludo-btn {
+    width: 100%;
+    margin-top: 12px;
+    padding: 13px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #7c3aed, #4f46e5);
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+.mobile-play-ludo-btn:active {
+    transform: scale(0.97);
+}
+}
+
+
+/* =====================================================
+   37. SMALL MOBILE
+===================================================== */
+
+@media (max-width: 420px) {
+
+    .brand-text h2 {
+        font-size: 15px;
+    }
+
+    .brand {
+        gap: 8px;
+    }
+
+    .hero-content h1 {
+        font-size: 30px;
+    }
+
+    .room-info {
+        padding: 10px 8px;
+    }
+
+    .room-info h3 {
+        font-size: 13px;
+    }
+
+    .room-header-actions {
+        gap: 5px;
+    }
+
+    .room-header-buttons {
+        gap: 4px;
+    }
+
+    #copyRoomCodeBtn,
+    .leave-room-btn {
+        padding: 8px 9px;
+        font-size: 10px;
+    }
+
+    .open-ludo-btn {
+        padding: 9px 6px;
+        font-size: 10px;
+    }
+
+    .message-form {
+        gap: 5px;
+        padding: 8px;
+    }
+
+    .message-form button {
+        padding: 0 10px;
+        font-size: 12px;
+    }
+}
+
+
+/* =====================================================
+   38. VERY SMALL SCREENS
+===================================================== */
+
+@media (max-width: 350px) {
+
+    body {
+        padding: 5px;
+    }
+
+    .room-section {
+        min-height: 380px;
+    }
+
+    .room-info {
+        padding: 9px 7px;
+    }
+
+    .room-info h3 {
+        font-size: 12px;
+    }
+
+    .room-header-actions {
+        gap: 4px;
+    }
+
+    .room-header-buttons {
+        gap: 3px;
+    }
+
+    #copyRoomCodeBtn,
+    .leave-room-btn {
+        padding: 7px 6px;
+        font-size: 9px;
+    }
+
+    .open-ludo-btn {
+        padding: 8px 5px;
+        font-size: 9px;
+    }
+
+    .message-form input {
+        padding: 10px;
+    }
+
+    .emoji-picker-button {
+        width: 36px;
+        height: 40px;
+        font-size: 20px;
+    }
+}
+
+
+/* =====================================================
+   39. CHAT SWIPE SUPPORT
+   Permanent received-message swipe fix
+===================================================== */
+
+#roomSection {
+    min-width: 0;
+    overflow-x: hidden;
+}
+
+#roomSection .chat-area {
+    min-width: 0;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    touch-action: pan-y;
+    overscroll-behavior-x: none;
+}
+
+#roomSection .message {
+    min-width: 0;
+    position: relative;
+}
+
+#roomSection .message-bubble {
+    position: relative;
+
+    touch-action: pan-y;
+
+    will-change: transform;
+}
+
+/* Received bubble must receive swipe events */
+
+#roomSection .message.received {
+    position: relative;
+    pointer-events: auto;
+}
+
+#roomSection .message.received .message-bubble {
+    position: relative;
+
+    pointer-events: auto;
+
+    z-index: 10;
+}
+
+/* Reaction wrapper does not block swipe */
+
+#roomSection .message.received .message-reactions {
+    pointer-events: none;
+}
+
+/* Reaction chips remain clickable */
+
+#roomSection .message.received .message-reactions .reaction-chip {
+    pointer-events: auto;
+}
+
+
+/* =====================================================
+   END OF MD TAUSIF CHAT CSS
+===================================================== */
+
+
+
+/* TELEGRAM STYLE REPLY QUOTE */
+
+.message-reply-quote {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    width: 100%;
+    min-width: 0;
+
+    padding: 7px 10px;
+    margin-bottom: 7px;
+
+    border-left: 3px solid #55c7ff;
+    border-radius: 5px;
+
+    background: rgba(0, 0, 0, 0.20);
+
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.reply-quote-name {
+    display: block;
+
+    color: #72d5ff;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.reply-quote-text {
+    display: -webkit-box;
+
+    color: rgba(255,255,255,.85);
+    font-size: 12px;
+    line-height: 1.35;
+
+    overflow: hidden;
+    overflow-wrap: anywhere;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+/* ORIGINAL MESSAGE HIGHLIGHT */
+
+.message.reply-message-highlight .message-bubble {
+    animation: replyMessageHighlight 1.8s ease;
+}
+
+@keyframes replyMessageHighlight {
+    0%, 100% {
+        box-shadow:
+            0 4px 12px rgba(0,0,0,.25),
+            inset 0 1px 1px rgba(255,255,255,.22);
+    }
+
+    35%, 65% {
+        box-shadow:
+            0 0 0 3px rgba(85,199,255,.8),
+            0 0 20px rgba(85,199,255,.55);
+    }
+}
+
+
+
+/* ======================================
+   SIDEBAR OPEN + CLOSE ANIMATION
+====================================== */
+
+.mobile-menu-content {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  
+   transform: translateX(100%) scale(0.95);
+  
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        visibility 0s linear 0.4s;
+}
+
+.mobile-menu[open] .mobile-menu-content {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateX(0) scale(1);
+
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        visibility 0s;
+}
+
+/* HAMBURGER ANIMATION */
+
+.mobile-menu summary span {
+    transition: all 0.35s ease;
+}
+
+.mobile-menu[open] summary span:first-child {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-menu[open] summary span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu[open] summary span:last-child {
+    transform: translateY(-7px) rotate(-45deg);
+}
+html {
+    overflow-x: clip;
+}
+
+
+
+
+
+/* html,
+body {
+    overscroll-behavior-y: none;
+}*/

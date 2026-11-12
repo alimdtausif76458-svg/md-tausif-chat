@@ -1,0 +1,2290 @@
+
+/* =====================================================
+   MD TAUSIF CHAT - PREMIUM LUDO ARENA
+   CLEAN CONSOLIDATED CSS
+   15 x 15 BOARD
+===================================================== */
+
+#ludoSection {
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+}
+
+#ludoGame,
+#ludoGame * {
+    box-sizing: border-box;
+}
+
+#ludoGame {
+    --ludo-gold: #f5c96a;
+    --ludo-dark: #07152b;
+    --ludo-border: rgba(255,255,255,.15);
+
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 22px 14px 30px;
+
+    color: #fff;
+
+    background:
+        radial-gradient(circle at 50% 30%, #173c68, transparent 65%),
+        linear-gradient(145deg, #07172e, #030a16);
+
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 22px;
+
+    box-shadow: 0 20px 55px rgba(0,0,0,.35);
+
+    font-family: Arial, sans-serif;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+#ludoGame .ludo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 22px;
+}
+
+#ludoGame .ludo-tag {
+    display: inline-block;
+    color: var(--ludo-gold);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 7px;
+}
+
+#ludoGame .ludo-header h2 {
+    margin: 0;
+    font-size: clamp(23px, 4vw, 34px);
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+#ludoGame .ludo-header p {
+    margin: 6px 0 0;
+    color: #a9bfd9;
+    font-size: 13px;
+}
+
+#ludoGame .ludo-status {
+    padding: 10px 15px;
+    border-radius: 30px;
+    background: rgba(255,255,255,.08);
+    border: 1px solid var(--ludo-border);
+    color: #d8eaff;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* =====================================================
+   PLAYER CARDS
+===================================================== */
+
+#ludoGame .ludo-players {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0,1fr));
+    gap: 10px;
+    margin-bottom: 22px;
+}
+
+#ludoGame .ludo-player {
+    position: relative;
+    min-width: 0;
+    padding: 12px 7px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+
+    border-radius: 13px;
+    background: rgba(255,255,255,.055);
+    border: 1px solid var(--ludo-border);
+
+    font-size: 12px;
+    font-weight: 900;
+
+    transition: .25s ease;
+}
+
+#ludoGame .player-icon {
+    font-size: 21px;
+}
+
+#ludoGame .ludo-player small {
+    color: #9db2ca;
+    font-size: 10px;
+}
+
+#ludoGame .ludo-player.red {
+    border-bottom: 3px solid #ed4242;
+}
+
+#ludoGame .ludo-player.green {
+    border-bottom: 3px solid #20c879;
+}
+
+#ludoGame .ludo-player.yellow {
+    border-bottom: 3px solid #f5ca36;
+}
+
+#ludoGame .ludo-player.blue {
+    border-bottom: 3px solid #388dff;
+}
+
+#ludoGame .ludo-player.active-player {
+    background: rgba(255,255,255,.15);
+    border-color: var(--ludo-gold);
+    box-shadow: 0 0 18px rgba(245,201,106,.2);
+}
+
+/* PLAYER SCORE */
+
+#ludoGame .ludo-player .ludo-score,
+#ludoGame .ludo-player .player-score,
+#ludoGame .ludo-player .ludo-player-score {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+
+    margin-top: 3px;
+    padding: 4px 9px;
+
+    border-radius: 20px;
+    background: rgba(245,201,106,.13);
+    border: 1px solid rgba(245,201,106,.35);
+
+    color: #ffe29a;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+/* =====================================================
+   GOLDEN WINNER BADGE
+===================================================== */
+
+#ludoGame .ludo-winner-badge,
+#ludoGame .winner-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 6px;
+    padding: 7px 12px;
+
+    border: 1px solid #fff0a6;
+    border-radius: 30px;
+
+    background: linear-gradient(135deg,#fff2a8,#f5c342,#c98a16);
+
+    color: #402600;
+    font-size: 11px;
+    font-weight: 1000;
+    letter-spacing: .7px;
+
+    text-shadow: 0 1px 1px rgba(255,255,255,.5);
+
+    box-shadow:
+        0 0 8px rgba(255,215,0,.6),
+        0 0 18px rgba(255,190,0,.35);
+
+    animation: ludoWinnerGlow 1.2s infinite alternate;
+}
+
+@keyframes ludoWinnerGlow {
+    from {
+        filter: brightness(1);
+        box-shadow: 0 0 7px rgba(255,215,0,.4);
+    }
+
+    to {
+        filter: brightness(1.2);
+        box-shadow: 0 0 18px rgba(255,215,0,.8);
+    }
+}
+
+/* =====================================================
+   BOARD WRAPPER
+===================================================== */
+
+#ludoGame .ludo-board-wrapper {
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* =====================================================
+   MAIN BOARD - FIXED 15 x 15 GRID
+===================================================== */
+
+#ludoGame .ludo-board {
+    position: relative;
+
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    display: grid;
+
+    grid-template-columns: repeat(15,minmax(0,1fr));
+    grid-template-rows: repeat(15,minmax(0,1fr));
+
+    overflow: hidden;
+
+    background: #f4f1e9;
+
+    border: 5px solid #d9ad52;
+    border-radius: 9px;
+
+    box-shadow:
+        0 0 0 3px #72501c,
+        0 15px 35px rgba(0,0,0,.5);
+}
+
+/* =====================================================
+   HOME AREAS
+===================================================== */
+
+#ludoGame .home {
+    position: relative;
+    z-index: 5;
+
+    min-width: 0;
+    min-height: 0;
+
+    padding: 7%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid rgba(0,0,0,.18);
+}
+
+#ludoGame .red-home {
+    grid-row: 1 / 7;
+    grid-column: 1 / 7;
+    background: #e94545;
+}
+
+#ludoGame .green-home {
+    grid-row: 1 / 7;
+    grid-column: 10 / 16;
+    background: #20bd70;
+}
+
+#ludoGame .yellow-home {
+    grid-row: 10 / 16;
+    grid-column: 10 / 16;
+    background: #f1c52f;
+}
+
+#ludoGame .blue-home {
+    grid-row: 10 / 16;
+    grid-column: 1 / 7;
+    background: #3488ee;
+}
+
+#ludoGame .home-inner {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 8%;
+
+    background: rgba(255,255,255,.94);
+    border: 2px solid rgba(255,255,255,.8);
+    border-radius: 10px;
+
+    box-shadow: inset 0 2px 12px rgba(0,0,0,.12);
+}
+
+/* =====================================================
+   HOME TOKEN GRID
+===================================================== */
+
+#ludoGame .token-slot {
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    grid-template-rows: repeat(2,minmax(0,1fr));
+
+    justify-items: center;
+    align-items: center;
+
+    gap: 5%;
+}
+
+/* =====================================================
+   ALL TOKENS
+===================================================== */
+
+#ludoGame .ludo-token {
+    position: relative;
+
+    width: 65%;
+    aspect-ratio: 1 / 1;
+
+    min-width: 0;
+    max-width: 35px;
+
+    padding: 0;
+    margin: 0;
+
+    border: 2px solid rgba(255,255,255,.85);
+    border-radius: 50%;
+
+    cursor: pointer;
+    pointer-events: auto;
+
+    box-shadow:
+        inset 2px 3px 4px rgba(255,255,255,.65),
+        inset -3px -4px 5px rgba(0,0,0,.35),
+        0 4px 0 rgba(0,0,0,.4),
+        0 6px 9px rgba(0,0,0,.3);
+
+    transition: filter .2s ease, box-shadow .2s ease;
+}
+
+#ludoGame .home .ludo-token {
+    position: relative;
+    z-index: 10;
+    pointer-events: auto;
+}
+
+#ludoGame .token-slot .ludo-token {
+    display: block;
+}
+
+/* =====================================================
+   3D TOKEN COLORS
+===================================================== */
+
+#ludoGame .ludo-token[data-color="red"] {
+    background:
+        radial-gradient(circle at 30% 23%, rgba(255,255,255,.9), transparent 32%),
+        linear-gradient(145deg,#ff7777,#e53935 55%,#8b1010);
+}
+
+#ludoGame .ludo-token[data-color="green"] {
+    background:
+        radial-gradient(circle at 30% 23%, rgba(255,255,255,.9), transparent 32%),
+        linear-gradient(145deg,#86efac,#16a34a 55%,#075c2a);
+}
+
+#ludoGame .ludo-token[data-color="yellow"] {
+    background:
+        radial-gradient(circle at 30% 23%, rgba(255,255,255,.9), transparent 32%),
+        linear-gradient(145deg,#fff4a3,#facc15 55%,#a16207);
+}
+
+#ludoGame .ludo-token[data-color="blue"] {
+    background:
+        radial-gradient(circle at 30% 23%, rgba(255,255,255,.9), transparent 32%),
+        linear-gradient(145deg,#93c5fd,#2563eb 55%,#102d85);
+}
+
+/* =====================================================
+   MOVABLE TOKEN GOLDEN GLOW
+===================================================== */
+
+#ludoGame .ludo-token.is-movable {
+    cursor: pointer;
+    pointer-events: auto;
+    animation: ludoGold3D .9s infinite alternate;
+}
+
+@keyframes ludoGold3D {
+    from {
+        filter: brightness(1);
+        box-shadow:
+            0 0 3px #fff,
+            0 0 5px #f5c96a,
+            inset 2px 3px 4px rgba(255,255,255,.65),
+            0 4px 0 rgba(0,0,0,.4);
+    }
+
+    to {
+        filter: brightness(1.3);
+        box-shadow:
+            0 0 8px #ffd700,
+            0 0 15px #ffbf00,
+            0 0 22px #e9a923,
+            inset 2px 3px 4px rgba(255,255,255,.65),
+            0 4px 0 rgba(0,0,0,.4);
+    }
+}
+
+/* =====================================================
+   TRACK LAYER
+===================================================== */
+
+#ludoGame .ludo-track {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(15,minmax(0,1fr));
+    grid-template-rows: repeat(15,minmax(0,1fr));
+
+    z-index: 3;
+
+    pointer-events: none;
+}
+
+/* =====================================================
+   TRACK CELLS
+===================================================== */
+
+#ludoGame .track-cell {
+    position: relative;
+
+    min-width: 0;
+    min-height: 0;
+
+    background: #fff;
+    border: 1px solid #b9bdc5;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+#ludoGame .track-cell.red-path {
+    background: #f5a0a0;
+}
+
+#ludoGame .track-cell.green-path {
+    background: #9be5b9;
+}
+
+#ludoGame .track-cell.yellow-path {
+    background: #f9e28c;
+}
+
+#ludoGame .track-cell.blue-path {
+    background: #9bc9ff;
+}
+
+/* HOME LANES */
+
+#ludoGame .track-cell.home-path-cell.red-path {
+    background: #ed4242;
+}
+
+#ludoGame .track-cell.home-path-cell.green-path {
+    background: #20bd70;
+}
+
+#ludoGame .track-cell.home-path-cell.yellow-path {
+    background: #f1c52f;
+}
+
+#ludoGame .track-cell.home-path-cell.blue-path {
+    background: #3488ee;
+}
+
+#ludoGame .track-cell.home-finish-cell {
+    box-shadow: inset 0 0 0 2px rgba(255,255,255,.85);
+}
+
+/* SAFE CELLS */
+
+#ludoGame .track-cell.safe-cell::after {
+    content: "★";
+
+    color: #d6a52e;
+    font-size: clamp(9px,1.5vw,18px);
+
+    position: absolute;
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+/* =====================================================
+   TOKENS ON TRACK
+===================================================== */
+
+#ludoGame .track-cell .ludo-token {
+    position: absolute;
+    z-index: 5;
+
+    pointer-events: auto;
+
+    width: 78%;
+    max-width: 30px;
+
+    border-width: 2px;
+}
+
+/* =====================================================
+   FINISHED TOKENS
+===================================================== */
+
+#ludoGame .ludo-token.is-finished-token {
+    width: 46% !important;
+    max-width: 19px !important;
+    min-width: 0 !important;
+
+    border-width: 2px !important;
+
+    cursor: default !important;
+    pointer-events: none !important;
+
+    animation: none !important;
+
+    filter: brightness(1.12);
+
+    box-shadow:
+        0 0 5px rgba(255,255,255,.8),
+        0 2px 5px rgba(0,0,0,.4);
+}
+
+/* Finished token groups */
+
+#ludoGame .ludo-finished-tokens,
+#ludoGame .finished-tokens,
+#ludoGame .ludo-finished-area {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+}
+
+/* =====================================================
+   CENTRE FINISH AREA
+===================================================== */
+
+#ludoGame .ludo-center {
+    grid-row: 7 / 10;
+    grid-column: 7 / 10;
+
+    position: relative;
+    z-index: 4;
+
+    overflow: hidden;
+
+    background: #fff;
+    border: 1px solid #aeb4bd;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+#ludoGame .center-triangle {
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+#ludoGame .red-triangle {
+    top: 0;
+    left: 0;
+    border-top: 100% solid #ed4242;
+    border-right: 100% solid transparent;
+}
+
+#ludoGame .green-triangle {
+    top: 0;
+    right: 0;
+    border-top: 100% solid #20bd70;
+    border-left: 100% solid transparent;
+}
+
+#ludoGame .yellow-triangle {
+    bottom: 0;
+    right: 0;
+    border-bottom: 100% solid #f1c52f;
+    border-left: 100% solid transparent;
+}
+
+#ludoGame .blue-triangle {
+    bottom: 0;
+    left: 0;
+    border-bottom: 100% solid #3488ee;
+    border-right: 100% solid transparent;
+}
+
+#ludoGame .center-star {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-size: clamp(14px,2.5vw,27px);
+
+    text-shadow: 0 2px 5px rgba(0,0,0,.5);
+
+    pointer-events: none;
+}
+
+/* =====================================================
+   CONTROLS
+===================================================== */
+
+#ludoGame .ludo-controls {
+    max-width: 680px;
+    margin: 22px auto 15px;
+
+    padding: 18px 12px 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 0;
+
+    text-align: center;
+
+    background: rgba(255,255,255,.06);
+    border: 1px solid var(--ludo-border);
+    border-radius: 15px;
+}
+
+#ludoGame .turn-information {
+    display: none !important;
+    width: 100%;
+    text-align: center;
+}
+
+#ludoGame .turn-label {
+    color: var(--ludo-gold);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+}
+
+#ludoGame .turn-information h3 {
+    margin: 7px 0;
+    font-size: 19px;
+}
+
+#ludoGame .turn-information p {
+    margin: 0;
+    color: #a9bfd9;
+    font-size: 12px;
+}
+
+/* =====================================================
+   SYNCHRONIZED TURN TIMER
+===================================================== */
+
+#ludoGame .ludo-turn-timer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    min-width: 155px;
+    margin: 10px auto;
+
+    padding: 9px 17px;
+
+    border: 1px solid rgba(245,201,106,.65);
+    border-radius: 30px;
+
+    background: rgba(0,0,0,.28);
+
+    color: #ffe3a0;
+
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: .5px;
+
+    box-shadow: 0 3px 12px rgba(0,0,0,.2);
+}
+
+#ludoGame .ludo-turn-timer[hidden] {
+    display: none !important;
+}
+
+/* Last 10 seconds */
+
+#ludoGame .ludo-turn-timer.urgent {
+    color: #ff4545;
+    border-color: #ff4545;
+
+    animation: ludoTimerPulse .7s infinite alternate;
+}
+
+@keyframes ludoTimerPulse {
+    from {
+        opacity: 1;
+        box-shadow: 0 0 5px rgba(255,50,50,.2);
+    }
+
+    to {
+        opacity: .65;
+        box-shadow: 0 0 15px rgba(255,50,50,.65);
+    }
+}
+
+/* Waiting for token move */
+
+#ludoGame .ludo-turn-timer.is-waiting {
+    color: #9bd5ff;
+    border-color: rgba(100,190,255,.6);
+    animation: none;
+}
+
+
+
+
+
+
+
+
+/* =====================================================
+   3D DICE BUTTON
+===================================================== */
+
+#ludoGame .dice-button {
+    position: relative;
+
+    width: 90px;
+    height: 90px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 10px auto 0;
+
+    overflow: visible;
+
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 15px;
+
+    background: linear-gradient(145deg,#234b79,#102746);
+
+    cursor: pointer;
+    perspective: 500px;
+}
+
+#ludoGame .dice-button:disabled {
+    opacity: .55;
+    cursor: not-allowed;
+}
+
+#ludoGame .dice-cube {
+    position: relative;
+
+    width: 43px;
+    height: 43px;
+
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg) rotateY(-25deg);
+
+    transition: transform .15s linear;
+}
+
+#ludoGame .dice-face {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(145deg,#fff,#d9dce2);
+
+    border: 2px solid #fff;
+    border-radius: 8px;
+
+    color: #18253a;
+
+    font-size: 24px;
+    font-weight: 900;
+
+    backface-visibility: hidden;
+
+    box-shadow: inset 0 0 8px rgba(0,0,0,.15);
+}
+
+#ludoGame .dice-front {
+    transform: translateZ(21.5px);
+}
+
+#ludoGame .dice-back {
+    transform: rotateY(180deg) translateZ(21.5px);
+}
+
+#ludoGame .dice-right {
+    transform: rotateY(90deg) translateZ(21.5px);
+}
+
+#ludoGame .dice-left {
+    transform: rotateY(-90deg) translateZ(21.5px);
+}
+
+#ludoGame .dice-top {
+    transform: rotateX(90deg) translateZ(21.5px);
+}
+
+#ludoGame .dice-bottom {
+    transform: rotateX(-90deg) translateZ(21.5px);
+}
+
+
+
+
+
+
+
+
+/* =====================================================
+   PREMIUM 3D GLOSSY LUDO COLOUR PICKER
+===================================================== */
+
+#ludoColorOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px;
+
+    background: rgba(0, 5, 18, .82);
+    backdrop-filter: blur(9px);
+}
+
+#ludoColorOverlay .ludo-color-modal {
+    width: 100%;
+    max-width: 340px;
+
+    padding: 25px 22px;
+
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 22px;
+
+    background:
+        radial-gradient(circle at top, #315d91, transparent 65%),
+        linear-gradient(145deg, #102d50, #061326);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.65),
+        inset 0 2px 5px rgba(255,255,255,.18);
+
+    text-align: center;
+
+    animation: ludoModalPop .3s ease;
+}
+
+@keyframes ludoModalPop {
+    from {
+        opacity: 0;
+        transform: scale(.75) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+#ludoColorOverlay .ludo-color-modal h2 {
+    margin: 0 0 8px;
+
+    color: #ffe29a;
+
+    font-size: 22px;
+    font-weight: 900;
+
+    text-shadow: 0 2px 8px rgba(255,200,50,.35);
+}
+
+#ludoColorOverlay .ludo-color-modal p {
+    margin: 0 0 20px;
+
+    color: #b9d4f3;
+    font-size: 13px;
+}
+
+/* ONE VERTICAL COLUMN */
+
+#ludoColorOverlay .ludo-color-options {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+
+    width: 100%;
+}
+
+/* 3D GLOSSY BUTTON */
+
+#ludoColorOverlay .ludo-color-option {
+    position: relative;
+
+    width: 100%;
+    min-height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 18px;
+
+    padding: 9px 18px;
+
+    border: 1px solid rgba(255,255,255,.5);
+    border-radius: 13px;
+
+    color: white;
+
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    box-shadow:
+        inset 0 3px 5px rgba(255,255,255,.4),
+        inset 0 -5px 8px rgba(0,0,0,.3),
+        0 5px 0 rgba(0,0,0,.45),
+        0 8px 13px rgba(0,0,0,.3);
+
+    transition: transform .15s, filter .15s, box-shadow .15s;
+}
+
+#ludoColorOverlay .ludo-color-option:hover:not(:disabled) {
+    transform: translateY(-3px);
+    filter: brightness(1.18);
+
+    box-shadow:
+        inset 0 3px 7px rgba(255,255,255,.5),
+        0 7px 0 rgba(0,0,0,.4),
+        0 12px 20px rgba(0,0,0,.4);
+}
+
+#ludoColorOverlay .ludo-color-option:active:not(:disabled) {
+    transform: translateY(3px);
+
+    box-shadow:
+        inset 0 3px 7px rgba(0,0,0,.3),
+        0 2px 0 rgba(0,0,0,.5);
+}
+
+/* INDIVIDUAL COLOURS */
+
+#ludoColorOverlay .ludo-color-option.red {
+    background: linear-gradient(145deg,#ff8585,#e52323 55%,#850b0b);
+}
+
+#ludoColorOverlay .ludo-color-option.green {
+    background: linear-gradient(145deg,#8bffb6,#13a653 55%,#07552b);
+}
+
+#ludoColorOverlay .ludo-color-option.yellow {
+    background: linear-gradient(145deg,#fff5a3,#f4bd16 55%,#9c6500);
+    color: #382500;
+}
+
+#ludoColorOverlay .ludo-color-option.blue {
+    background: linear-gradient(145deg,#8ccaff,#1876e9 55%,#092c83);
+}
+
+/* 3D TOKEN ICON */
+
+#ludoColorOverlay .ludo-color-token {
+    position: relative;
+
+    display: inline-block;
+
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+
+    border: 2px solid rgba(255,255,255,.9);
+    border-radius: 50%;
+
+    box-shadow:
+        inset 3px 4px 5px rgba(255,255,255,.7),
+        inset -4px -5px 6px rgba(0,0,0,.35),
+        0 4px 0 rgba(0,0,0,.4),
+        0 6px 9px rgba(0,0,0,.3);
+}
+
+#ludoColorOverlay .ludo-color-token.red {
+    background: radial-gradient(circle at 30% 23%,white,transparent 32%),
+                linear-gradient(145deg,#ff7777,#e53935 55%,#8b1010);
+}
+
+#ludoColorOverlay .ludo-color-token.green {
+    background: radial-gradient(circle at 30% 23%,white,transparent 32%),
+                linear-gradient(145deg,#86efac,#16a34a 55%,#075c2a);
+}
+
+#ludoColorOverlay .ludo-color-token.yellow {
+    background: radial-gradient(circle at 30% 23%,white,transparent 32%),
+                linear-gradient(145deg,#fff4a3,#facc15 55%,#a16207);
+}
+
+#ludoColorOverlay .ludo-color-token.blue {
+    background: radial-gradient(circle at 30% 23%,white,transparent 32%),
+                linear-gradient(145deg,#93c5fd,#2563eb 55%,#102d85);
+}
+
+/* TAKEN COLOUR */
+
+#ludoColorOverlay .ludo-color-option:disabled {
+    opacity: .42;
+    filter: grayscale(.55);
+    cursor: not-allowed;
+
+    transform: none;
+    box-shadow: 0 3px 0 rgba(0,0,0,.4);
+}
+
+/* CANCEL BUTTON */
+
+#ludoColorOverlay .ludo-color-close {
+    width: 100%;
+
+    margin-top: 20px;
+    padding: 12px;
+
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 10px;
+
+    background: linear-gradient(145deg,#52647b,#26364b);
+
+    color: white;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    box-shadow:
+        inset 0 2px 4px rgba(255,255,255,.2),
+        0 4px 0 #101b29;
+}
+
+#ludoColorOverlay .ludo-color-close:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 #101b29;
+}
+
+
+
+
+/* =====================================================
+   DICE HAND - 1.5X SIZE + NEON WHITE BLUE GLOW
+===================================================== */
+
+#ludoGame .dice-hand {
+    display: none !important;
+
+    position: absolute;
+
+    left: calc(50% - 5px);
+    right: auto;
+
+    top: auto;
+    bottom: -20px;
+
+    transform: translateX(-50%) scale(1.5);
+    transform-origin: center center;
+
+    z-index: 30;
+
+    font-size: 25px;
+    line-height: 1;
+
+    pointer-events: none;
+}
+
+#ludoGame .dice-button.is-current-turn .dice-hand {
+    display: block !important;
+
+    animation:
+        ludoHandBelowDice .45s ease-in-out infinite alternate,
+        ludoHandGlow .45s ease-in-out infinite alternate;
+}
+
+/* HAND MOVEMENT */
+
+@keyframes ludoHandBelowDice {
+    from {
+        translate: 0 -3px;
+    }
+
+    to {
+        translate: 0 7px;
+    }
+}
+
+/* NEON WHITE + BLUE GLOW */
+
+@keyframes ludoHandGlow {
+    from {
+        filter:
+            drop-shadow(0 0 3px #ffffff)
+            drop-shadow(0 0 8px #00eaff)
+            drop-shadow(0 0 13px #008cff);
+    }
+
+    to {
+        filter:
+            drop-shadow(0 0 9px #ffffff)
+            drop-shadow(0 0 20px #00eaff)
+            drop-shadow(0 0 30px #008cff);
+    }
+}
+
+/* =====================================================
+   GAME ACTION BUTTONS
+===================================================== */
+
+#ludoGame .ludo-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin: 18px 0;
+}
+
+#ludoGame .ludo-actions button {
+    min-width: 145px;
+
+    padding: 13px 22px;
+
+    border: 0;
+    border-radius: 10px;
+
+    color: #101827;
+
+    background: linear-gradient(135deg,#ffe08a,#dba63e);
+
+    font-size: 13px;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+#ludoGame .ludo-actions button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(245,201,106,.25);
+}
+
+#ludoGame .ludo-actions button:disabled {
+    opacity: .45;
+    cursor: not-allowed;
+}
+
+/* =====================================================
+   TOKEN FINISH CELEBRATION
+===================================================== */
+
+#ludoGame .ludo-finish-effect {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%,-50%);
+
+    z-index: 100;
+
+    width: max-content;
+    max-width: 90%;
+
+    padding: 12px 18px;
+
+    border-radius: 30px;
+
+    background: rgba(7,21,43,.94);
+    border: 1px solid #f5c96a;
+
+    color: #ffe39a;
+
+    font-size: clamp(11px,2vw,16px);
+    font-weight: 900;
+
+    text-align: center;
+    letter-spacing: .5px;
+
+    box-shadow:
+        0 0 12px rgba(245,201,106,.5),
+        0 8px 25px rgba(0,0,0,.35);
+
+    pointer-events: none;
+
+    animation: ludoFinishPop 1.7s ease forwards;
+}
+
+@keyframes ludoFinishPop {
+    0% {
+        opacity: 0;
+        transform: translate(-50%,-35%) scale(.7);
+    }
+
+    15% {
+        opacity: 1;
+        transform: translate(-50%,-50%) scale(1.05);
+    }
+
+    75% {
+        opacity: 1;
+        transform: translate(-50%,-50%) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%,-65%) scale(.9);
+    }
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+#ludoGame .ludo-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 10px 22px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid var(--ludo-border);
+
+    color: #9db2ca;
+    font-size: 11px;
+}
+
+/* =====================================================
+   RESPONSIVE - TABLET AND MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    #ludoGame {
+        padding: 15px 8px 22px ;
+        border-radius: 14px;
+        margin-top: 15px;
+    }
+
+    #ludoGame .ludo-header {
+        margin-bottom: 15px;
+    }
+
+    #ludoGame .ludo-players {
+        gap: 5px;
+        margin-bottom: 15px;
+    }
+
+    #ludoGame .ludo-player {
+        padding: 9px 3px;
+        font-size: 10px;
+    }
+
+    #ludoGame .player-icon {
+        font-size: 17px;
+    }
+
+    #ludoGame .ludo-player small {
+        font-size: 9px;
+    }
+
+    #ludoGame .ludo-board {
+        border-width: 3px;
+    }
+
+    #ludoGame .home {
+        padding: 6%;
+    }
+
+    #ludoGame .home-inner {
+        padding: 7%;
+        border-radius: 6px;
+        border-width: 1px;
+    }
+
+    #ludoGame .ludo-token {
+        border-width: 2px;
+    }
+
+    #ludoGame .ludo-controls {
+        padding: 12px 10px 26px;
+        margin-top: 16px;
+    }
+
+    #ludoGame .dice-button {
+        width: 72px;
+        height: 72px;
+    }
+
+    #ludoGame .dice-cube {
+        transform: scale(.8) rotateX(-20deg) rotateY(-25deg);
+    }
+
+    #ludoGame .dice-hand {
+        font-size: 25px;
+        bottom: -18px;
+    }
+
+    #ludoGame .ludo-token.is-finished-token {
+        max-width: 15px !important;
+    }
+
+    #ludoGame .ludo-actions button {
+        min-width: 125px;
+        padding: 12px 15px;
+    }
+
+    #ludoGame .ludo-footer {
+        gap: 8px 12px;
+        font-size: 9px;
+    }
+
+    #ludoGame .ludo-turn-timer {
+        min-width: 140px;
+        padding: 7px 12px;
+        font-size: 12px;
+    }
+
+    #ludoGame .ludo-winner-badge,
+    #ludoGame .winner-badge {
+        font-size: 9px;
+        padding: 5px 9px;
+    }
+}
+
+@media (max-width: 360px) {
+
+    #ludoGame .ludo-controls {
+        gap: 7px;
+    }
+
+    #ludoGame .dice-button {
+        width: 62px;
+        height: 62px;
+    }
+
+    #ludoGame .dice-hand {
+        font-size: 25px;
+        bottom: -18px;
+    }
+
+    #ludoGame .ludo-header h2 {
+        font-size: 22px;
+    }
+}
+
+/* =====================================================
+   LUDO CONTAINER TRANSPARENT
+===================================================== */
+
+#ludoGame,
+#ludoSection {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+
+
+
+
+
+/* =========================================
+   NEON GAMING COLOUR PICKER - FINAL LOOK
+========================================= */
+
+#ludoColorOverlay {
+    background: rgba(1, 5, 20, .88);
+    backdrop-filter: blur(12px);
+}
+
+#ludoColorOverlay .ludo-color-modal {
+    border: 1px solid #00eaff;
+    background:
+        radial-gradient(circle at top, #173c70, transparent 70%),
+        linear-gradient(145deg, #080f29, #020611);
+
+    box-shadow:
+        0 0 15px rgba(0,234,255,.35),
+        0 0 40px rgba(0,100,255,.2),
+        inset 0 0 20px rgba(0,234,255,.08);
+}
+
+#ludoColorOverlay .ludo-color-modal h2 {
+    color: #fff;
+    text-shadow:
+        0 0 7px #00eaff,
+        0 0 18px #008cff;
+}
+
+/* COLOUR BUTTON */
+
+#ludoColorOverlay .ludo-color-option {
+    min-height: 65px;
+    justify-content: flex-start;
+    border: 1px solid rgba(255,255,255,.35);
+    border-radius: 14px;
+    padding: 10px 15px;
+    gap: 14px;
+}
+
+/* SELECTED COLOUR */
+
+#ludoColorOverlay .ludo-color-option.selected {
+    transform: scale(1.035);
+    border: 2px solid #fff;
+
+    box-shadow:
+        0 0 8px #fff,
+        0 0 17px currentColor,
+        0 0 30px currentColor,
+        inset 0 0 15px rgba(255,255,255,.3);
+}
+
+/* ROUND CHECKBOX */
+
+#ludoColorOverlay .ludo-color-check {
+    width: 25px;
+    height: 25px;
+    margin-left: auto;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid rgba(255,255,255,.8);
+    border-radius: 50%;
+
+    background: rgba(0,0,0,.25);
+
+    color: transparent;
+    font-size: 15px;
+    font-weight: 900;
+
+    box-shadow: inset 0 2px 5px rgba(0,0,0,.4);
+}
+
+/* FILLED CHECKBOX */
+
+#ludoColorOverlay .ludo-color-option.selected .ludo-color-check {
+    background: #00f5ff;
+    border-color: #fff;
+
+    color: #001323;
+
+    box-shadow:
+        0 0 7px #00eaff,
+        0 0 17px #00eaff,
+        inset 0 1px 3px #fff;
+}
+
+/* 3D TOKEN */
+
+#ludoColorOverlay .ludo-color-token {
+    width: 39px;
+    height: 39px;
+
+    box-shadow:
+        inset 3px 4px 6px rgba(255,255,255,.8),
+        inset -4px -5px 7px rgba(0,0,0,.4),
+        0 4px 0 rgba(0,0,0,.5),
+        0 0 12px currentColor;
+}
+
+/* CONFIRM BUTTON */
+
+#ludoColorOverlay .ludo-confirm-color {
+    width: 100%;
+    min-height: 52px;
+    margin-top: 22px;
+
+    border: 1px solid #8fffff;
+    border-radius: 12px;
+
+    background: linear-gradient(135deg,#00eaff,#0879ff,#493bff);
+
+    color: #fff;
+    font-size: 14px;
+    font-weight: 1000;
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 10px rgba(0,234,255,.7),
+        0 0 22px rgba(0,120,255,.45),
+        inset 0 2px 5px rgba(255,255,255,.5),
+        0 5px 0 #063c83;
+
+    transition: .2s ease;
+}
+
+#ludoColorOverlay .ludo-confirm-color:not(:disabled):hover {
+    transform: translateY(-3px);
+    filter: brightness(1.2);
+
+    box-shadow:
+        0 0 15px #00eaff,
+        0 0 30px #0879ff,
+        0 7px 0 #063c83;
+}
+
+#ludoColorOverlay .ludo-confirm-color:not(:disabled):active {
+    transform: translateY(3px);
+}
+
+#ludoColorOverlay .ludo-confirm-color:disabled {
+    opacity: .35;
+    filter: grayscale(1);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* CANCEL BUTTON */
+
+#ludoColorOverlay .ludo-color-close {
+    margin-top: 15px;
+    border: 1px solid rgba(255,255,255,.2);
+    background: linear-gradient(145deg,#27364f,#101827);
+}
+
+/* MOBILE */
+
+@media(max-width: 400px) {
+    #ludoColorOverlay .ludo-color-modal {
+        padding: 20px 15px;
+    }
+
+    #ludoColorOverlay .ludo-color-option {
+        min-height: 59px;
+    }
+}
+
+
+
+
+
+
+
+
+/* =========================================
+   LEAVE LUDO BUTTON - RED
+========================================= */
+
+#ludoGame #leaveLudoBtn {
+    background: linear-gradient(135deg, #ff5555, #c90000);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.3);
+    box-shadow: 0 4px 12px rgba(255,0,0,.25);
+}
+
+#ludoGame #leaveLudoBtn:hover:not(:disabled) {
+    box-shadow: 0 6px 18px rgba(255,0,0,.45);
+}
+
+
+/* =========================================
+   LEAVE LUDO CONFIRMATION POPUP
+========================================= */
+
+.leave-ludo-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px;
+
+    background: rgba(0,0,0,.82);
+    backdrop-filter: blur(9px);
+}
+
+.leave-ludo-modal[hidden] {
+    display: none !important;
+}
+
+.leave-ludo-box {
+    width: 100%;
+    max-width: 360px;
+
+    padding: 25px 20px;
+
+    text-align: center;
+
+    color: #fff;
+
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 20px;
+
+    background:
+        radial-gradient(circle at top, #493050, transparent 70%),
+        linear-gradient(145deg, #171727, #080b18);
+
+    box-shadow:
+        0 0 20px rgba(255,0,0,.15),
+        0 20px 50px rgba(0,0,0,.6);
+
+    animation: leaveLudoPopup .25s ease;
+}
+
+.leave-ludo-box h3 {
+    margin: 0 0 12px;
+    font-size: 22px;
+}
+
+.leave-ludo-box p {
+    margin: 0 0 22px;
+    color: #c5c5d5;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.leave-ludo-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.leave-ludo-actions button {
+    flex: 1;
+    min-width: 0;
+
+    padding: 13px 8px;
+
+    border: 0;
+    border-radius: 10px;
+
+    font-size: 12px;
+    font-weight: 900;
+
+    cursor: pointer;
+}
+
+#cancelLeaveLudo {
+    background: linear-gradient(145deg, #52647b, #26364b);
+    color: #fff;
+}
+
+#confirmLeaveLudo {
+    background: linear-gradient(135deg, #ff5555, #c90000);
+    color: #fff;
+}
+
+@keyframes leaveLudoPopup {
+    from {
+        opacity: 0;
+        transform: scale(.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+
+/* =========================================
+   LEFT PLAYER - RED NEON HOME LABEL
+========================================= */
+
+#ludoGame .home-inner {
+    position: relative;
+}
+
+#ludoGame .ludo-left-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    z-index: 20;
+
+    color: #ff0000;
+    font-size: clamp(15px, 2.5vw, 23px);
+    font-weight: 1000;
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 4px #fff,
+        0 0 8px #ff0000,
+        0 0 15px #ff0000,
+        0 0 25px #ff0000;
+
+    pointer-events: none;
+    animation: ludoLeftNeon 1s infinite alternate;
+}
+
+@keyframes ludoLeftNeon {
+    from {
+        opacity: .7;
+        filter: brightness(1);
+    }
+
+    to {
+        opacity: 1;
+        filter: brightness(1.5);
+    }
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   LUDO FINAL RESULTS - PREMIUM VICTORY POPUP
+===================================================== */
+
+.ludo-final-results-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(8px);
+    animation: ludoResultFadeIn 0.4s ease;
+}
+
+.ludo-final-results-card {
+    width: 100%;
+    max-width: 650px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 25px 20px;
+    border: 2px solid #d9a441;
+    border-radius: 24px;
+    text-align: center;
+    color: white;
+    background: linear-gradient(145deg, #252044, #10101f);
+    box-shadow:
+        0 0 25px rgba(255, 193, 7, 0.35),
+        0 0 60px rgba(255, 193, 7, 0.12);
+    animation: ludoResultPop 0.5s ease;
+}
+
+.ludo-result-trophy {
+    font-size: 75px;
+    margin-bottom: 8px;
+    animation: ludoTrophyBounce 1s infinite alternate;
+    filter: drop-shadow(0 0 15px gold);
+}
+
+.ludo-final-results-card h1 {
+    font-size: clamp(25px, 5vw, 38px);
+    font-weight: 1000;
+    color: #ffd700;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+    margin-bottom: 10px;
+}
+
+.ludo-final-results-card h2 {
+    font-size: clamp(17px, 3vw, 24px);
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.ludo-result-subtitle {
+    color: #b9b5d0;
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-bottom: 22px;
+}
+
+.ludo-result-table {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.ludo-result-header,
+.ludo-result-row {
+    display: grid;
+    grid-template-columns: 55px minmax(0, 1fr) 75px 85px;
+    align-items: center;
+    gap: 5px;
+    padding: 13px 9px;
+    text-align: center;
+}
+
+.ludo-result-header {
+    background: rgba(255, 255, 255, 0.1);
+    color: #c9c5dd;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.ludo-result-row {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.ludo-result-rank {
+    color: #ffd700;
+    font-size: 16px;
+    font-weight: 1000;
+}
+
+.ludo-result-color {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 7px;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    text-align: left;
+}
+
+.ludo-result-color span {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    border-radius: 50%;
+}
+
+.ludo-result-color.red span {
+    background: #ff3030;
+}
+
+.ludo-result-color.green span {
+    background: #20d66b;
+}
+
+.ludo-result-color.yellow span {
+    background: #ffd700;
+}
+
+.ludo-result-color.blue span {
+    background: #2995ff;
+}
+
+.ludo-result-score {
+    color: #fff;
+    font-weight: 900;
+}
+
+.ludo-result-status {
+    font-size: 10px;
+    font-weight: 1000;
+    color: #ff7777;
+}
+
+.winner-row {
+    background: rgba(255, 193, 7, 0.13);
+}
+
+.winner-row .ludo-result-status {
+    color: #ffd700;
+}
+
+.winner-row .ludo-result-rank {
+    color: #ffd700;
+}
+
+.left-row {
+    background: rgba(255, 0, 0, 0.08);
+}
+
+.left-row .ludo-result-status {
+    color: #ff3030;
+}
+
+.ludo-result-close-btn {
+    margin-top: 22px;
+    padding: 12px 45px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #ffd700, #ff9900);
+    color: #241600;
+    font-size: 14px;
+    font-weight: 1000;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.35);
+}
+
+.ludo-result-close-btn:hover {
+    transform: scale(1.05);
+}
+
+@keyframes ludoResultFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes ludoResultPop {
+    from {
+        opacity: 0;
+        transform: scale(0.75);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes ludoTrophyBounce {
+    from { transform: translateY(0) rotate(-5deg); }
+    to { transform: translateY(-10px) rotate(5deg); }
+}
+
+@media (max-width: 480px) {
+    .ludo-final-results-card {
+        padding: 20px 10px;
+    }
+
+    .ludo-result-header,
+    .ludo-result-row {
+        grid-template-columns: 35px minmax(0, 1fr) 55px 65px;
+        gap: 3px;
+        padding: 12px 5px;
+    }
+
+    .ludo-result-header {
+        font-size: 8px;
+    }
+
+    .ludo-result-row {
+        font-size: 10px;
+    }
+
+    .ludo-result-status {
+        font-size: 9px;
+    }
+
+    .ludo-result-trophy {
+        font-size: 60px;
+    }
+}
+
+
+
+/* =====================================================
+   LUDO PERSONAL RESULT STYLES
+===================================================== */
+
+/* WINNER */
+.ludo-result-victory {
+    border-color: #ffd700;
+    box-shadow:
+        0 0 25px rgba(255, 215, 0, 0.5),
+        0 0 60px rgba(255, 215, 0, 0.25);
+}
+
+.ludo-result-victory h1 {
+    color: #ffd700;
+    text-shadow: 0 0 18px gold;
+}
+
+/* LOSER */
+.ludo-result-defeat {
+    border-color: #ff2222;
+    box-shadow:
+        0 0 25px rgba(255, 0, 0, 0.5),
+        0 0 60px rgba(255, 0, 0, 0.25);
+}
+
+.ludo-result-defeat h1,
+.ludo-result-defeat h2 {
+    color: #ff3030;
+    text-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+}
+
+/* PLAYER WHO LEFT */
+.ludo-result-left {
+    border-color: #ff5555;
+}
+
+.ludo-result-left h1,
+.ludo-result-left h2 {
+    color: #ff5555;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   PREMIUM LIQUID GLASS LUDO NOTIFICATION
+========================================= */
+
+#ludoGame .ludo-header {
+    position: relative;
+    overflow: hidden;
+}
+
+/* GLASS NOTIFICATION */
+#ludoGame .ludo-chat-notification {
+    position: absolute;
+    inset: 0;
+    z-index: 99999;
+
+    width: 100%;
+    height: 50%;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    padding: 15px 22px;
+
+    /* PREMIUM ROUNDED BORDER */
+    border: 1.5px solid rgba(255, 255, 255, 0.65);
+    border-radius: 20px;
+
+    /* FROSTED GLASS BACKGROUND */
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.48),
+            rgba(190, 230, 255, 0.28),
+            rgba(255, 255, 255, 0.42)
+        );
+
+    /* GLASS BLUR */
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+
+    /* SOFT GLASS GLOW */
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.18),
+        0 0 18px rgba(120, 220, 255, 0.25),
+        inset 0 1px 2px rgba(255, 255, 255, 0.85),
+        inset 0 -1px 2px rgba(255, 255, 255, 0.25);
+
+    color: #10243d;
+
+    animation: headerGlassNotification .35s ease;
+}
+
+/* HIDDEN STATE */
+#ludoGame .ludo-chat-notification[hidden] {
+    display: none !important;
+}
+
+/* CHAT ICON */
+#ludoGame .ludo-chat-notification-icon {
+    font-size: 34px;
+    flex-shrink: 0;
+
+    filter: drop-shadow(0 2px 5px rgba(0, 120, 200, .25));
+}
+
+/* MESSAGE CONTENT */
+#ludoGame .ludo-chat-notification-content {
+    min-width: 0;
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* SENDER NAME */
+#ludoGame .ludo-chat-notification-content strong {
+    color: #075985;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: .3px;
+}
+
+/* MESSAGE */
+#ludoGame .ludo-chat-notification-content span {
+    color: #172b45;
+    font-size: 14px;
+    font-weight: 600;
+
+    overflow-wrap: anywhere;
+}
+
+/* CLOSE BUTTON */
+#ludoGame .ludo-chat-notification-close {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, .8);
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .45);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    color: #17324d;
+    font-size: 25px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+}
+
+#ludoGame .ludo-chat-notification-close:hover {
+    background: rgba(255, 255, 255, .85);
+    transform: scale(1.08);
+}
+
+/* ANIMATION */
+@keyframes headerGlassNotification {
+    from {
+        opacity: 0;
+        transform: scale(.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+
+    #ludoGame .ludo-chat-notification {
+        padding: 10px 12px;
+        gap: 10px;
+        border-radius: 16px;
+    }
+
+    #ludoGame .ludo-chat-notification-icon {
+        font-size: 26px;
+    }
+
+    #ludoGame .ludo-chat-notification-content strong {
+        font-size: 12px;
+    }
+
+    #ludoGame .ludo-chat-notification-content span {
+        font-size: 11px;
+    }
+
+    #ludoGame .ludo-chat-notification-close {
+        width: 30px;
+        height: 30px;
+        font-size: 21px;
+    }
+}
+
+
+
+
+
+/* FIX: Long Ludo notification messages */
+#ludoGame .ludo-chat-notification {
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+#ludoGame .ludo-chat-notification-content {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+}
+
+#ludoGame #ludoChatNotificationText {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}

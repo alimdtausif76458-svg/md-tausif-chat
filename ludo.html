@@ -1,0 +1,273 @@
+
+<div class="ludo-container" id="ludoGame">
+
+    <!-- PREMIUM HEADER -->
+    <div class="ludo-header">
+
+        <div>
+            <span class="ludo-tag">👑 MD TAUSIF CHAT</span>
+            <h2>🎲 LUDO ARENA</h2>
+            <p>Play Together • Compete • Win</p>
+        </div>
+
+        <div class="ludo-status" id="ludoStatus">
+            🟢 Waiting for players
+        </div>
+
+        <!-- FULL HEADER CHAT NOTIFICATION -->
+        <div id="ludoChatNotification" class="ludo-chat-notification" hidden>
+
+            <span class="ludo-chat-notification-icon">💬</span>
+
+            <div class="ludo-chat-notification-content">
+                <strong id="ludoChatNotificationSender">New Message</strong>
+                <span id="ludoChatNotificationText"></span>
+            </div>
+
+            <button
+                type="button"
+                class="ludo-chat-notification-close"
+                onclick="this.parentElement.hidden = true"
+                aria-label="Close notification">
+                ×
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- PLAYER CARDS -->
+    <div class="ludo-players" id="ludoPlayers">
+
+        <div class="ludo-player red">
+            <span class="player-icon">🔴</span>
+            <span>RED</span>
+            <small>Waiting</small>
+        </div>
+
+        <div class="ludo-player green">
+            <span class="player-icon">🟢</span>
+            <span>GREEN</span>
+            <small>Waiting</small>
+        </div>
+
+        <div class="ludo-player yellow">
+            <span class="player-icon">🟡</span>
+            <span>YELLOW</span>
+            <small>Waiting</small>
+        </div>
+
+        <div class="ludo-player blue">
+            <span class="player-icon">🔵</span>
+            <span>BLUE</span>
+            <small>Waiting</small>
+        </div>
+
+    </div>
+
+
+    <!-- GAME BOARD -->
+    <div class="ludo-board-wrapper">
+
+        <div class="ludo-board" id="ludoBoard">
+
+            <!-- RED HOME -->
+            <div class="home red-home">
+                <div class="home-inner">
+                    <div class="token-slot" id="redHomeTokens">
+
+                        <button class="ludo-token red-token" data-color="red" data-token="0" aria-label="Red token 1"></button>
+
+                        <button class="ludo-token red-token" data-color="red" data-token="1" aria-label="Red token 2"></button>
+
+                        <button class="ludo-token red-token" data-color="red" data-token="2" aria-label="Red token 3"></button>
+
+                        <button class="ludo-token red-token" data-color="red" data-token="3" aria-label="Red token 4"></button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- GREEN HOME -->
+            <div class="home green-home">
+                <div class="home-inner">
+                    <div class="token-slot" id="greenHomeTokens">
+
+                        <button class="ludo-token green-token" data-color="green" data-token="0" aria-label="Green token 1"></button>
+
+                        <button class="ludo-token green-token" data-color="green" data-token="1" aria-label="Green token 2"></button>
+
+                        <button class="ludo-token green-token" data-color="green" data-token="2" aria-label="Green token 3"></button>
+
+                        <button class="ludo-token green-token" data-color="green" data-token="3" aria-label="Green token 4"></button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- YELLOW HOME -->
+            <div class="home yellow-home">
+                <div class="home-inner">
+                    <div class="token-slot" id="yellowHomeTokens">
+
+                        <button class="ludo-token yellow-token" data-color="yellow" data-token="0" aria-label="Yellow token 1"></button>
+
+                        <button class="ludo-token yellow-token" data-color="yellow" data-token="1" aria-label="Yellow token 2"></button>
+
+                        <button class="ludo-token yellow-token" data-color="yellow" data-token="2" aria-label="Yellow token 3"></button>
+
+                        <button class="ludo-token yellow-token" data-color="yellow" data-token="3" aria-label="Yellow token 4"></button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- BLUE HOME -->
+            <div class="home blue-home">
+                <div class="home-inner">
+                    <div class="token-slot" id="blueHomeTokens">
+
+                        <button class="ludo-token blue-token" data-color="blue" data-token="0" aria-label="Blue token 1"></button>
+
+                        <button class="ludo-token blue-token" data-color="blue" data-token="1" aria-label="Blue token 2"></button>
+
+                        <button class="ludo-token blue-token" data-color="blue" data-token="2" aria-label="Blue token 3"></button>
+
+                        <button class="ludo-token blue-token" data-color="blue" data-token="3" aria-label="Blue token 4"></button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- TRACK -->
+            <div class="ludo-track" id="ludoTrack"></div>
+
+
+            <!-- CENTRE FINISH -->
+            <div class="ludo-center">
+
+                <div class="center-triangle red-triangle"></div>
+
+                <div class="center-triangle green-triangle"></div>
+
+                <div class="center-triangle yellow-triangle"></div>
+
+                <div class="center-triangle blue-triangle"></div>
+
+                <div class="center-star">★</div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- DICE CONTROLS -->
+    <div class="ludo-controls">
+
+        <!-- Hidden compatibility elements for existing JS -->
+        <div class="turn-information" hidden>
+
+            <span class="turn-label">CURRENT TURN</span>
+
+            <h3 id="currentTurn">Waiting for game</h3>
+
+            <p id="ludoMessage">Waiting</p>
+
+        </div>
+
+        <button
+            type="button"
+            class="dice-button"
+            id="ludoDice"
+            aria-label="Roll dice"
+            disabled
+        >
+
+            <span class="dice-hand" id="diceHand" aria-hidden="true">👆</span>
+
+            <span class="dice-cube" id="diceCube">
+
+                <span class="dice-face dice-front">1</span>
+
+                <span class="dice-face dice-back">6</span>
+
+                <span class="dice-face dice-right">3</span>
+
+                <span class="dice-face dice-left">4</span>
+
+                <span class="dice-face dice-top">2</span>
+
+                <span class="dice-face dice-bottom">5</span>
+
+            </span>
+
+        </button>
+
+    </div>
+
+
+    <!-- GAME BUTTONS -->
+    <div class="ludo-actions">
+
+        <button type="button" id="joinLudoBtn">
+            👥 Join Game
+        </button>
+
+        <button type="button" id="leaveLudoBtn" hidden>
+            🚪 LEAVE LUDO
+        </button>
+
+        <button type="button" id="startLudoBtn" disabled>
+            ▶ Start Game
+        </button>
+
+    </div>
+
+
+    <!-- LEAVE LUDO CONFIRMATION POPUP -->
+    <div id="leaveLudoModal" class="leave-ludo-modal" hidden>
+
+        <div class="leave-ludo-box">
+
+            <h3>🚪 Leave Ludo?</h3>
+
+            <p>
+                Are you sure you want to leave this game?
+                You can watch the game, but cannot join it again.
+            </p>
+
+            <div class="leave-ludo-actions">
+
+                <button type="button" id="cancelLeaveLudo">
+                    CANCEL
+                </button>
+
+                <button type="button" id="confirmLeaveLudo">
+                    YES, LEAVE
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <div class="ludo-footer">
+
+        <span>👥 2–4 Players</span>
+
+        <span>🎯 Room Members Only</span>
+
+        <span>🏆 Play • Enjoy • Win</span>
+
+    </div>
+
+</div>
